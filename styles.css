@@ -1,0 +1,36 @@
+body {
+    background-color: bisque;
+}
+
+.heading {
+    text-align: center;
+    font-family: sans-serif;
+    margin-top: 10%;
+    font-size: 3em;
+}
+
+.time {
+    margin: 0;
+    padding: 0;
+}
+
+.num-days {
+    text-align: center;
+    font-size: 10em;
+}
+
+.num-hours {
+    text-align: center;
+    font-size: 6em;
+}
+
+.num-minutes {
+    text-align: center;
+    font-size: 3em;
+}
+.num-seconds {
+    text-align: center;
+    font-size: 2em;
+    margin-top: 10px;
+}
+
