@@ -5,7 +5,6 @@ body {
 .heading {
     text-align: center;
     font-family: sans-serif;
-    margin-top: 10%;
     font-size: 3em;
 }
 
@@ -28,9 +27,46 @@ body {
     text-align: center;
     font-size: 3em;
 }
+
 .num-seconds {
     text-align: center;
     font-size: 2em;
     margin-top: 10px;
 }
 
+.dropdown {
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    max-width: 70%;
+}
+
+.dropdown-menu {
+    height: 120px;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    border: solid black 1px;
+}
+
+.dropdown-item {
+    text-align: center;
+    font-size: 2em;
+}
+
+.dropdown-item:hover {
+    cursor: pointer;
+    background-color: linen;
+}
+
+.dropdown-toggle {
+    text-align: center;
+    display: block;
+    margin: auto;
+    border: solid black 1px;
+    font-size: 3em;
+}
+
+.dropdown-toggle:hover {
+    cursor: pointer;
+}
