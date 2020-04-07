@@ -12,14 +12,14 @@ if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elain
 
 if (isMobile) {
     const body = document.getElementsByTagName('BODY')[0]
-    body.style.fontSize = '10px'
+    body.style.fontSize = '8px'
 }
 
 
 class NumDays {
     constructor() {
         this.state = 'New York'
-        this.start = new Date('March 22, 2020 20:00:00')
+        this.start = new Date('March 20, 2020 00:00:00')
         this.date = new Date()
         this.numDays = null
         this.numHours = null
