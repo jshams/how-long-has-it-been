@@ -2,6 +2,8 @@ const days = document.getElementById('num-days')
 const hours = document.getElementById('num-hours')
 const minutes = document.getElementById('num-minutes')
 const seconds = document.getElementById('num-seconds')
+const dropdown = document.getElementById('dropdownMenuLink')
+const dropdownItems = document.getElementById('dropdown-items')
 
 var isMobile = false; //initiate as false
 // device detection
@@ -15,28 +17,111 @@ if (isMobile) {
     body.style.fontSize = '8px'
 }
 
+var states = {
+    'Alaska': 'March 28, 2020 17:00:00',
+    'Arizona': 'March 31, 2020 17:00:00',
+    'Arkansas': null,
+    'California': 'March 19, 2020 00:00:00',
+    'Colorado': 'March 26, 2020 06:00:00',
+    'Connecticut': 'March 23, 2020 20:00:00',
+    'Delaware': 'March 24, 2020 08:00:00',
+    'District of Columbia': 'April 01, 2020 00:01:00',
+    'Florida': 'April 03, 2020 00:01:00',
+    'Georgia': 'April 03, 2020 00:00:00',
+    'Hawaii': 'March 25, 2020 00:01:00',
+    'Iowa': null,
+    'Idaho': 'March 25, 2020 17:00:00',
+    'Illinios': 'March 21, 2020 17:00:00',
+    'Indiana': 'March 24, 2020 23:59:00',
+    'Kansas': 'March 30, 2020 00:01:00',
+    'Kentucky': 'March 26, 2020 20:00:00',
+    'Louisiana': 'March 23, 2020 17:00:00',
+    'Maine': 'April 02, 2020 00:01:00',
+    'Maryland': 'March 30, 2020 20:00:00',
+    'Massachusetts': 'March 24, 2020 12:00:00',
+    'Michigan': 'March 24, 2020 00:01:00',
+    'Minnesota': 'March 27, 2020 23:59:00',
+    'Mississippi': 'April 03, 2020 17:00:00',
+    'Missouri': 'April 06, 2020 00:01:00',
+    'Montana': 'March 28, 2020 00:01:00',
+    'Nebraska': null,
+    'Nevada': 'April 01, 2020 00:00:00',
+    'New Hampshire': 'March 27, 2020 23:59:00',
+    'New Jersey': 'March 21, 2020 21:00:00',
+    'New Mexico': 'March 24, 2020 08:00:00',
+    'New York': 'March 22, 2020 20:00:00',
+    'North Carolina': 'March 30, 2020 17:00:00',
+    'North Dakota': null,
+    'Ohio': 'March 23, 2020 23:59:00',
+    'Oklahoma': 'March 28, 2020 23:59:00',
+    'Oregon': 'March 23, 2020 00:00:00',
+    'Pennsylvania': 'April 01, 2020 20:00:00',
+    'Rhode Island': 'March 28, 2020 00:00:00',
+    'South Carolina': 'March 26, 2020 00:01:00',
+    'South Dakota': null,
+    'Tennessee': 'March 31, 2020 23:59:00',
+    'Texas': 'April 02, 2020 00:01:00',
+    'Utah': 'March 30, 2020 00:01:00',
+    'Vermont': 'March 30, 2020 00:00:00',
+    'Washington': 'March 23, 2020 00:00:00',
+    'West Virginia': 'March 24, 2020 20:00:00',
+    'Wisconsin': 'March 25, 2020 20:00:00',
+    'Wyoming': 'March 28 2020 00:00:00'
+}
+
+const keys = Object.keys(states)
+for (let i = 0; i < keys.length; i++) {
+    const state = keys[i]
+    // <a class="dropdown-item" href="#">Action</a>
+    const anchor = document.createElement("A")
+    dropdownItems.appendChild(anchor)
+    anchor.classList.add("dropdown-item")
+    anchor.innerHTML = state
+    anchor.onclick = function () { changeState(state) }
+}
 
 class NumDays {
-    constructor() {
+    constructor(state) {
         this.state = 'New York'
-        this.start = new Date('March 20, 2020 00:00:00')
+        this.start = new Date('March 22, 2020 20:00:00')
         this.date = new Date()
         this.numDays = null
         this.numHours = null
-        this.update()
+        dropdown.innerHTML = 'New York'
+        this.updateHTML()
     }
 
-    update() {
-        this.date = new Date()
-        const timeDiff = this.date - this.start
-        this.numDays = Math.floor(timeDiff / 86400000)
-        this.numHours = Math.floor((timeDiff % 86400000) / 3600000)
-        this.numMinutes = Math.floor((timeDiff % 3600000) / 60000)
-        this.numSeconds = Math.floor((timeDiff % 60000) / 1000)
+
+    getNewTimes() {
+        if (states[this.state] === null) {
+            this.numDays = 0
+            this.numHours = 0
+            this.numMinutes = 0
+            this.numSeconds = 0
+        }
+        else {
+            this.date = new Date()
+            const timeDiff = this.date - this.start
+            this.numDays = Math.floor(timeDiff / 86400000)
+            this.numHours = Math.floor((timeDiff % 86400000) / 3600000)
+            this.numMinutes = Math.floor((timeDiff % 3600000) / 60000)
+            this.numSeconds = Math.floor((timeDiff % 60000) / 1000)
+        }
+    }
+
+    updateHTML() {
+        this.getNewTimes()
         days.innerHTML = this.numDays
         hours.innerHTML = this.numHours
         minutes.innerHTML = this.numMinutes
         seconds.innerHTML = this.numSeconds
+    }
+
+    changeState(newState) {
+        this.state = newState
+        this.start = new Date(states[newState])
+        this.updateHTML()
+        dropdown.innerHTML = newState
     }
 }
 
@@ -44,7 +129,31 @@ class NumDays {
 let n = new NumDays()
 
 function update() {
-    n.update()
+    n.updateHTML()
 }
 
+function changeState(newState) {
+    n.changeState(newState)
+    closeDropdown()
+}
+
+function clickDropdown() {
+    if (dropdownItems.style.visibility == 'hidden') {
+        openDropdown()
+    }
+    else {
+        closeDropdown()
+    }
+}
+
+function openDropdown() {
+    dropdownItems.style.visibility = 'visible'
+    dropdownItems.style.marginBottom = '0px'
+}
+
+function closeDropdown() {
+    dropdownItems.style.visibility = 'hidden'
+    dropdownItems.style.marginBottom = '-80px'
+}
+closeDropdown()
 setInterval(update, 1000)
