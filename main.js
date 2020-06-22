@@ -4,6 +4,9 @@ const minutes = document.getElementById('num-minutes')
 const seconds = document.getElementById('num-seconds')
 const dropdown = document.getElementById('dropdownMenuLink')
 const dropdownItems = document.getElementById('dropdown-items')
+const dropdownState = document.getElementById('current-state')
+const dropdownArrow = document.getElementById('dropdown-arrow')
+
 
 var isMobile = false; //initiate as false
 // device detection
@@ -15,6 +18,10 @@ if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elain
 if (isMobile) {
     const body = document.getElementsByTagName('BODY')[0]
     body.style.fontSize = '8px'
+}
+
+else {
+    dropdownArrow.style.marginTop = '15px'
 }
 
 var states = {
@@ -81,13 +88,13 @@ for (let i = 0; i < keys.length; i++) {
 }
 
 class NumDays {
-    constructor(state) {
+    constructor() {
         this.state = 'New York'
         this.start = new Date('March 22, 2020 20:00:00')
         this.date = new Date()
         this.numDays = null
         this.numHours = null
-        dropdown.innerHTML = 'New York'
+        dropdownState.innerHTML = 'New York'
         this.updateHTML()
     }
 
@@ -121,7 +128,7 @@ class NumDays {
         this.state = newState
         this.start = new Date(states[newState])
         this.updateHTML()
-        dropdown.innerHTML = newState
+        dropdownState.innerHTML = newState
     }
 }
 
@@ -149,11 +156,18 @@ function clickDropdown() {
 function openDropdown() {
     dropdownItems.style.visibility = 'visible'
     dropdownItems.style.marginBottom = '0px'
+    // make the arrow point down
+    dropdownArrow.style.transform = 'rotate(0deg)'
+    console.log('opened dropdown')
 }
 
 function closeDropdown() {
     dropdownItems.style.visibility = 'hidden'
     dropdownItems.style.marginBottom = '-80px'
+    // make the arrow point to the right
+    dropdownArrow.style.transform = 'rotate(270deg)'
+    console.log('dropdown closed')
 }
+
 closeDropdown()
 setInterval(update, 1000)

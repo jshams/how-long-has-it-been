@@ -35,10 +35,9 @@ body {
 }
 
 .dropdown {
-    display: block;
-    margin: auto;
     margin-top: 20px;
-    max-width: 70%;
+    width: 70%;
+    margin-left: 15%;
 }
 
 .dropdown-menu {
@@ -62,11 +61,16 @@ body {
 .dropdown-toggle {
     text-align: center;
     display: block;
-    margin: auto;
     border: solid black 1px;
     font-size: 3em;
+    width: 100%;
 }
 
 .dropdown-toggle:hover {
     cursor: pointer;
+}
+
+.dropdown-arrow {
+    float: right;
+    margin-top: 0.2em;
 }
