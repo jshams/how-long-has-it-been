@@ -1,41 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>How Long Has it Been</title>
     <meta property="og:image" content="preview.png" />
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162960924-1"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-162960924-1"
+    ></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-        gtag('config', 'UA-162960924-1');
+      gtag("config", "UA-162960924-1");
     </script>
 
     <!-- my styles -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-</head>
-
-<body>
+  <body>
     <div class="dropdown">
-        <a class="dropdown-toggle" id="dropdownMenuLink" onclick='clickDropdown()'>
-            <span id="current-state">New York</span>
-            <span><img id="dropdown-arrow" src="arrow.svg" alt="dropdown arrow" class="dropdown-arrow"><img></span>
-        </a>
-        <div class="dropdown-menu" id="dropdown-items">
-        </div>
+      <a
+        class="dropdown-toggle"
+        id="dropdownMenuLink"
+        onclick="clickDropdown()"
+      >
+        <span id="current-state">New York</span>
+        <span
+          ><img
+            id="dropdown-arrow"
+            src="arrow.svg"
+            alt="dropdown arrow"
+            class="dropdown-arrow" /><img
+        /></span>
+      </a>
+      <div class="dropdown-menu" id="dropdown-items"></div>
     </div>
-    <h1 class="heading" id="heading">You've been stuck in quarantine for:</h1>
+    <h1 class="heading" id="heading">Days since life was normal:</h1>
     <h1 class="time num-days"><span id="num-days">0</span> days</h1>
     <h1 class="time num-hours"><span id="num-hours">0</span> hours</h1>
     <h1 class="time num-minutes"><span id="num-minutes">0</span> minutes</h1>
     <h1 class="time num-seconds"><span id="num-seconds">0</span> seconds</h1>
     <script src="main.js"></script>
-</body>
-
+  </body>
 </html>
