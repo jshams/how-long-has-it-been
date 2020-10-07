@@ -1,76 +1,76 @@
 body {
-    background-color: bisque;
+  background-color: bisque;
 }
 
 .heading {
-    text-align: center;
-    font-family: sans-serif;
-    font-size: 3em;
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 3em;
 }
 
 .time {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .num-days {
-    text-align: center;
-    font-size: 10em;
+  text-align: center;
+  font-size: 10em;
 }
 
 .num-hours {
-    text-align: center;
-    font-size: 6em;
+  text-align: center;
+  font-size: 6em;
 }
 
 .num-minutes {
-    text-align: center;
-    font-size: 3em;
+  text-align: center;
+  font-size: 3em;
 }
 
 .num-seconds {
-    text-align: center;
-    font-size: 2em;
-    margin-top: 10px;
+  text-align: center;
+  font-size: 2em;
+  margin-top: 10px;
 }
 
 .dropdown {
-    margin-top: 20px;
-    width: 70%;
-    margin-left: 15%;
+  margin-top: 20px;
+  width: 70%;
+  margin-left: 15%;
 }
 
 .dropdown-menu {
-    height: 120px;
-    overflow: scroll;
-    display: flex;
-    flex-direction: column;
-    border: solid black 1px;
+  height: 120px;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  border: solid black 1px;
 }
 
 .dropdown-item {
-    text-align: center;
-    font-size: 2em;
+  text-align: center;
+  font-size: 2em;
 }
 
 .dropdown-item:hover {
-    cursor: pointer;
-    background-color: linen;
+  cursor: pointer;
+  background-color: linen;
 }
 
 .dropdown-toggle {
-    text-align: center;
-    display: block;
-    border: solid black 1px;
-    font-size: 3em;
-    width: 100%;
+  text-align: center;
+  display: block;
+  border: solid black 1px;
+  font-size: 3em;
+  width: 100%;
 }
 
 .dropdown-toggle:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .dropdown-arrow {
-    float: right;
-    margin-top: 0.2em;
+  float: right;
+  margin-top: 0.2em;
 }
